@@ -37,4 +37,21 @@ public class Statistic {
         return (hopeSuccessTake/sizePuck * 100);
     }
 
+    /**
+     *
+     * @param puck
+     * @return
+     * @throws IOException
+     */
+    public Integer SumCardsInPuck(ArrayList<Puck> puck) throws IOException
+    {
+        Integer sumCardsInPuck = 0;
+
+        for (Puck pck: puck)
+        {
+            if (!pck.getUsed()) sumCardsInPuck++;
+        }
+        return sumCardsInPuck;
+    }
+
 }
