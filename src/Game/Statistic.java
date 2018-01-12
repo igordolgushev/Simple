@@ -12,12 +12,12 @@ public class Statistic {
      * @return
      * @throws IOException
      */
-    public Integer HopeSuccessTake(ArrayList<Puck> puck, int value) throws IOException
+    public Integer HopeSuccessTake(ArrayList<Card> puck, int value) throws IOException
     {
         int count= 0;
 
-        for (Puck pck : puck) {
-            if (pck.getValue() <= value) {
+        for (Card pck : puck) {
+            if ((pck.getValue() <= (21 - value)) & !pck.getUsed()) {
                 count++;
             }
         }
@@ -32,9 +32,9 @@ public class Statistic {
      * @return
      * @throws IOException
      */
-    public Integer HopeSuccessTakePrc(int hopeSuccessTake, int sizePuck) throws IOException
+    public float HopeSuccessTakePrc(int hopeSuccessTake, int sizePuck) throws IOException
     {
-        return (hopeSuccessTake/sizePuck * 100);
+        return (hopeSuccessTake/(float)sizePuck * 100);
     }
 
     /**
@@ -43,11 +43,11 @@ public class Statistic {
      * @return
      * @throws IOException
      */
-    public Integer SumCardsInPuck(ArrayList<Puck> puck) throws IOException
+    public Integer SumCardsInPuck(ArrayList<Card> puck) throws IOException
     {
         Integer sumCardsInPuck = 0;
 
-        for (Puck pck: puck)
+        for (Card pck: puck)
         {
             if (!pck.getUsed()) sumCardsInPuck++;
         }
